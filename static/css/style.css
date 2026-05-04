@@ -22,6 +22,10 @@
     --cat-entertainment-bg: #e8eef4;
     --cat-shopping: #8b5e83;
     --cat-shopping-bg: #f3edf7;
+    --cat-bills: #4a90d9;
+    --cat-bills-bg: #e8f0fa;
+    --cat-other: #9b9b9b;
+    --cat-other-bg: #f0f0f0;
 
     --font-display: 'DM Serif Display', Georgia, serif;
     --font-body: 'DM Sans', system-ui, sans-serif;
@@ -810,19 +814,18 @@ a { color: inherit; text-decoration: none; }
 
 /* User info card */
 .profile-header { display: flex; align-items: center; gap: 1.5rem; background: var(--paper-card); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 2rem; }
-.profile-avatar { width: 64px; height: 64px; background: var(--accent); color: var(--paper-card); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 1.75rem; flex-shrink: 0; }
+.profile-avatar { width: 96px; height: 96px; background: var(--accent); color: var(--paper-card); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 2rem; flex-shrink: 0; }
 .profile-meta   { flex: 1; }
-.profile-name   { font-family: var(--font-display); font-size: 1.5rem; color: var(--ink); }
+.profile-name   { font-family: var(--font-display); font-size: 1.75rem; color: var(--ink); margin-bottom: 0.2rem; }
 .profile-email  { font-size: 0.9rem; color: var(--ink-muted); }
-.profile-since  { font-size: 0.8rem; color: var(--ink-faint); margin-top: 0.15rem; }
+.profile-since  { font-size: 0.85rem; color: var(--ink-faint); margin-top: 0.2rem; }
 
-/* Stat icon — sits inside existing .dash-stat */
-.stat-icon { font-size: 1.25rem; color: var(--accent); margin-bottom: 0.4rem; }
-.profile-stat-top { font-family: var(--font-display); font-size: 1.1rem; color: var(--ink); line-height: 1.3; }
+/* Two-column bottom layout */
+.profile-bottom { display: grid; grid-template-columns: 1fr 380px; gap: 1.5rem; align-items: start; }
 
-/* Section chrome */
-.profile-section-title { font-family: var(--font-display); font-size: 1.25rem; color: var(--ink); margin-bottom: 1rem; }
-.profile-card          { background: var(--paper-card); border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden; }
+/* Card shell */
+.profile-card       { background: var(--paper-card); border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden; }
+.profile-card-title { font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; color: var(--ink); padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--border); }
 
 /* Expense table */
 .expense-table              { width: 100%; border-collapse: collapse; }
@@ -840,32 +843,37 @@ a { color: inherit; text-decoration: none; }
 .cat-badge                { display: inline-block; padding: 0.2rem 0.65rem; border-radius: 999px; font-size: 0.75rem; font-weight: 500; }
 .cat-badge--food          { background: var(--accent-light); color: var(--accent); }
 .cat-badge--transport     { background: var(--accent-2-light); color: var(--accent-2); }
-.cat-badge--bills         { background: var(--danger-light); color: var(--danger); }
+.cat-badge--bills         { background: var(--cat-bills-bg); color: var(--cat-bills); }
 .cat-badge--entertainment { background: var(--cat-entertainment-bg); color: var(--cat-entertainment); }
 .cat-badge--shopping      { background: var(--cat-shopping-bg); color: var(--cat-shopping); }
-.cat-badge--health        { background: var(--accent-light); color: var(--accent); }
-.cat-badge--other         { background: var(--border-soft); color: var(--ink-muted); }
+.cat-badge--health        { background: var(--danger-light); color: var(--danger); }
+.cat-badge--other         { background: var(--cat-other-bg); color: var(--cat-other); }
 
-/* Category breakdown bars */
-.profile-cat-row                { display: grid; grid-template-columns: 110px 1fr 90px; align-items: center; gap: 1rem; padding: 0.875rem 1.25rem; border-bottom: 1px solid var(--border-soft); }
-.profile-cat-row:last-child     { border-bottom: none; }
-.profile-cat-name               { font-size: 0.85rem; font-weight: 500; color: var(--ink-soft); }
-.profile-cat-track              { height: 6px; background: var(--border-soft); border-radius: 999px; overflow: hidden; }
+/* Category breakdown — vertical items */
+.profile-cat-item           { padding: 0.875rem 1.5rem; border-bottom: 1px solid var(--border-soft); }
+.profile-cat-item:last-child { border-bottom: none; }
+.profile-cat-header         { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem; }
+.profile-cat-name           { font-size: 0.9rem; font-weight: 500; color: var(--ink); }
+.profile-cat-amount         { font-size: 0.85rem; color: var(--ink-muted); }
+.profile-cat-bar-wrap       { height: 5px; border-radius: 999px; overflow: hidden; background: var(--border-soft); }
 .profile-cat-bar                { height: 100%; border-radius: 999px; transition: width 0.4s ease; }
 .profile-cat-bar--food          { background: var(--accent); }
 .profile-cat-bar--transport     { background: var(--accent-2); }
-.profile-cat-bar--bills         { background: var(--danger); }
+.profile-cat-bar--bills         { background: var(--cat-bills); }
 .profile-cat-bar--entertainment { background: var(--cat-entertainment); }
-.profile-cat-bar--shopping      { background: var(--cat-shopping); }
-.profile-cat-amount             { font-size: 0.85rem; font-weight: 500; color: var(--ink-muted); text-align: right; }
+.profile-cat-bar--shopping      { background: var(--accent-2); }
+.profile-cat-bar--health        { background: var(--danger); }
+.profile-cat-bar--other         { background: var(--cat-other); }
 
 /* Responsive */
+@media (max-width: 900px) {
+    .profile-bottom { grid-template-columns: 1fr; }
+}
+
 @media (max-width: 768px) {
     .profile-header { flex-direction: column; text-align: center; }
-    .profile-header .btn-primary { width: 100%; text-align: center; }
     .expense-table th:first-child,
     .expense-table td:first-child { display: none; }
-    .profile-cat-row { grid-template-columns: 80px 1fr 70px; }
 }
 
 @media (max-width: 600px) {

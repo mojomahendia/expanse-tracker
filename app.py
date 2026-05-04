@@ -115,29 +115,32 @@ def profile():
         return redirect(url_for("login"))
 
     user = {
-        "name":         "Arjun Sharma",
-        "email":        "arjun@example.com",
-        "member_since": "January 2025",
+        "name":         "Demo User",
+        "email":        "demo@spendly.com",
+        "member_since": "15 Jan 2025",
     }
     stats = {
-        "total_spent":       "12,480.50",
-        "transaction_count": 24,
-        "top_category":      "Food & Dining",
+        "total_spent":       "12,450.75",
+        "transaction_count": 8,
+        "top_category":      "Food",
     }
     expenses = [
-        {"id": 1, "date": "Apr 30, 2026", "description": "Swiggy order",         "category": "Food",          "amount": 345.00},
-        {"id": 2, "date": "Apr 28, 2026", "description": "Metro card recharge",  "category": "Transport",     "amount": 200.00},
-        {"id": 3, "date": "Apr 25, 2026", "description": "Netflix subscription", "category": "Entertainment", "amount": 649.00},
-        {"id": 4, "date": "Apr 22, 2026", "description": "Electricity bill",     "category": "Bills",         "amount": 1850.00},
-        {"id": 5, "date": "Apr 18, 2026", "description": "Zara — spring haul",   "category": "Shopping",      "amount": 3200.00},
-        {"id": 6, "date": "Apr 15, 2026", "description": "Grocery run",          "category": "Food",          "amount": 680.00},
+        {"id": 1, "date": "12 Apr 2025", "description": "Groceries",            "category": "Food",          "amount": 850.00},
+        {"id": 2, "date": "11 Apr 2025", "description": "Metro card recharge",  "category": "Transport",     "amount": 500.00},
+        {"id": 3, "date": "10 Apr 2025", "description": "Electricity bill",     "category": "Bills",         "amount": 2200.00},
+        {"id": 4, "date": "09 Apr 2025", "description": "Doctor visit",         "category": "Health",        "amount": 800.00},
+        {"id": 5, "date": "08 Apr 2025", "description": "Netflix subscription", "category": "Entertainment", "amount": 649.00},
+        {"id": 6, "date": "07 Apr 2025", "description": "Grocery store",        "category": "Food",          "amount": 1450.00},
+        {"id": 7, "date": "05 Apr 2025", "description": "Online shopping",      "category": "Shopping",      "amount": 3200.00},
+        {"id": 8, "date": "03 Apr 2025", "description": "Miscellaneous",        "category": "Other",         "amount": 2801.75},
     ]
     categories = [
-        {"name": "Food",          "slug": "food",          "amount": "4,200.00", "pct": 34},
-        {"name": "Bills",         "slug": "bills",         "amount": "3,600.00", "pct": 29},
-        {"name": "Transport",     "slug": "transport",     "amount": "2,100.00", "pct": 17},
-        {"name": "Shopping",      "slug": "shopping",      "amount": "1,580.00", "pct": 13},
-        {"name": "Entertainment", "slug": "entertainment", "amount": "1,000.50", "pct": 8},
+        {"name": "Shopping",      "slug": "shopping",      "amount": "3,200.00", "pct": 100},
+        {"name": "Other",         "slug": "other",         "amount": "2,801.75", "pct": 88},
+        {"name": "Food",          "slug": "food",          "amount": "2,300.00", "pct": 72},
+        {"name": "Bills",         "slug": "bills",         "amount": "2,200.00", "pct": 69},
+        {"name": "Health",        "slug": "health",        "amount": "800.00",   "pct": 25},
+        {"name": "Entertainment", "slug": "entertainment", "amount": "649.00",   "pct": 20},
     ]
     return render_template("profile.html",
                            user=user, stats=stats,
