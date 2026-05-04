@@ -115,34 +115,33 @@ def profile():
         return redirect(url_for("login"))
 
     user = {
-        "name": "Demo User",
-        "email": "demo@spendly.com",
-        "member_since": "April 2026",
+        "name":         "Arjun Sharma",
+        "email":        "arjun@example.com",
+        "member_since": "January 2025",
     }
     stats = {
-        "total_spent": "328.25",
-        "transaction_count": 8,
-        "top_category": "Bills",
+        "total_spent":       "12,480.50",
+        "transaction_count": 24,
+        "top_category":      "Food & Dining",
     }
-    transactions = [
-        {"date": "Apr 25", "description": "Grocery run",   "category": "Food",          "amount": "22.00"},
-        {"date": "Apr 22", "description": "Miscellaneous", "category": "Other",         "amount": "8.75"},
-        {"date": "Apr 18", "description": "Clothing",      "category": "Shopping",      "amount": "65.00"},
-        {"date": "Apr 14", "description": "Movie tickets", "category": "Entertainment", "amount": "20.00"},
-        {"date": "Apr 10", "description": "Pharmacy",      "category": "Health",        "amount": "35.00"},
+    expenses = [
+        {"id": 1, "date": "Apr 30, 2026", "description": "Swiggy order",         "category": "Food",          "amount": 345.00},
+        {"id": 2, "date": "Apr 28, 2026", "description": "Metro card recharge",  "category": "Transport",     "amount": 200.00},
+        {"id": 3, "date": "Apr 25, 2026", "description": "Netflix subscription", "category": "Entertainment", "amount": 649.00},
+        {"id": 4, "date": "Apr 22, 2026", "description": "Electricity bill",     "category": "Bills",         "amount": 1850.00},
+        {"id": 5, "date": "Apr 18, 2026", "description": "Zara — spring haul",   "category": "Shopping",      "amount": 3200.00},
+        {"id": 6, "date": "Apr 15, 2026", "description": "Grocery run",          "category": "Food",          "amount": 680.00},
     ]
     categories = [
-        {"name": "Bills",         "total": "120.00", "pct": 37},
-        {"name": "Shopping",      "total": "65.00",  "pct": 20},
-        {"name": "Transport",     "total": "45.00",  "pct": 14},
-        {"name": "Health",        "total": "35.00",  "pct": 11},
-        {"name": "Food",          "total": "34.50",  "pct": 11},
-        {"name": "Entertainment", "total": "20.00",  "pct": 6},
-        {"name": "Other",         "total": "8.75",   "pct": 3},
+        {"name": "Food",          "slug": "food",          "amount": "4,200.00", "pct": 34},
+        {"name": "Bills",         "slug": "bills",         "amount": "3,600.00", "pct": 29},
+        {"name": "Transport",     "slug": "transport",     "amount": "2,100.00", "pct": 17},
+        {"name": "Shopping",      "slug": "shopping",      "amount": "1,580.00", "pct": 13},
+        {"name": "Entertainment", "slug": "entertainment", "amount": "1,000.50", "pct": 8},
     ]
     return render_template("profile.html",
-        user=user, stats=stats,
-        transactions=transactions, categories=categories)
+                           user=user, stats=stats,
+                           expenses=expenses, categories=categories)
 
 
 @app.route("/expenses/add")
