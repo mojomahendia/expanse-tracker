@@ -796,3 +796,180 @@ a { color: inherit; text-decoration: none; }
     .hero { padding: 3rem 1rem 2.5rem; }
     .dash-stat-row { grid-template-columns: 1fr; }
 }
+
+/* ------------------------------------------------------------------ */
+/* Profile page                                                        */
+/* ------------------------------------------------------------------ */
+
+.profile-section { padding: 3rem 2rem; }
+
+.profile-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 1.5rem;
+    align-items: start;
+}
+
+.profile-card {
+    background: var(--paper-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 1.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.profile-card-title {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: var(--ink);
+    margin-bottom: 1.25rem;
+}
+
+.profile-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 999px;
+    background: var(--accent);
+    color: var(--paper-card);
+    font-size: 1.4rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.profile-name {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    color: var(--ink);
+    margin-bottom: 0.2rem;
+}
+
+.profile-email {
+    font-size: 0.9rem;
+    color: var(--ink-muted);
+    margin-bottom: 0.2rem;
+}
+
+.profile-since {
+    font-size: 0.8rem;
+    color: var(--ink-faint);
+}
+
+.profile-stat-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.profile-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.profile-stat-label {
+    font-size: 0.78rem;
+    color: var(--ink-muted);
+}
+
+.profile-stat-value {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    color: var(--ink);
+}
+
+/* Transaction table */
+
+.tx-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.tx-table th {
+    text-align: left;
+    font-size: 0.78rem;
+    color: var(--ink-muted);
+    font-weight: 500;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.tx-table td {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border-soft);
+    vertical-align: middle;
+}
+
+.tx-table tr:last-child td { border-bottom: none; }
+
+.tx-date { color: var(--ink-muted); width: 60px; }
+.tx-desc { color: var(--ink-soft); }
+.tx-amount { text-align: right; font-weight: 500; color: var(--ink); }
+
+/* Category badges */
+
+.cat-badge {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.cat-food          { background: var(--accent-2-light); color: var(--accent-2); }
+.cat-bills         { background: var(--accent-light);   color: var(--accent); }
+.cat-transport     { background: var(--border-soft);    color: var(--ink-soft); }
+.cat-health        { background: var(--danger-light);   color: var(--danger); }
+.cat-entertainment { background: var(--paper-warm);     color: var(--ink-soft); }
+.cat-shopping      { background: var(--accent-light);   color: var(--ink-soft); }
+.cat-other         { background: var(--border-soft);    color: var(--ink-muted); }
+
+/* Category breakdown bars */
+
+.cat-row { margin-bottom: 1rem; }
+
+.cat-row-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.4rem;
+}
+
+.cat-total { font-size: 0.85rem; color: var(--ink-soft); font-weight: 500; }
+
+.cat-bar-track {
+    height: 6px;
+    background: var(--border-soft);
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.cat-bar-fill {
+    height: 100%;
+    border-radius: 999px;
+    background: var(--accent);
+}
+
+.cat-bills-bar         { background: var(--accent); }
+.cat-shopping-bar      { background: var(--ink-soft); }
+.cat-transport-bar     { background: var(--ink-muted); }
+.cat-health-bar        { background: var(--danger); }
+.cat-food-bar          { background: var(--accent-2); }
+.cat-entertainment-bar { background: var(--ink-faint); }
+.cat-other-bar         { background: var(--border); }
+
+/* Profile responsive */
+
+@media (max-width: 900px) {
+    .profile-inner { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+    .profile-stat-row { grid-template-columns: 1fr 1fr; }
+    .profile-section  { padding: 2rem 1rem; }
+}
